@@ -10,6 +10,7 @@ int padding = 10;
 int dot_time = 250;
 int dash_time = dot_time * 3;
 int padding_time = dot_time;
+int smile_y = 190;
 
 String MorseTelephony[] =
 {
@@ -237,6 +238,7 @@ void loop() {
         }
       }
       int r = true;
+      M5.Lcd.fillRect(0, smile_y, 305, 30, WHITE); //Clean smileys
       for (int j = i * 5; j < i * 5 + 5; j++)
       {
         int k = j - i * 5;
@@ -248,9 +250,9 @@ void loop() {
           break;
         int abs_ = abs(actual_time - UserMorseCodeTime[k]);
         int x = 50 + k * 50;
-        int y = 190;
-        M5.Lcd.fillRect(x, y, 305, 30, WHITE);
-        M5.Lcd.setCursor(x, y);
+ //       int y = 190;
+        M5.Lcd.fillRect(x, smile_y, 305, 30, WHITE);
+        M5.Lcd.setCursor(x, smile_y);
         // actual_time/4 - 25% tolerance
         if (abs_ > actual_time / 4)
         {
@@ -262,6 +264,7 @@ void loop() {
           M5.Lcd.print(":)");
         }
       }
+      delay(2000);
       if (r)
         break;
     }
