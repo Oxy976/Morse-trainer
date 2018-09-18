@@ -251,6 +251,7 @@ void loop() {
         int y = 190;
         M5.Lcd.fillRect(x, y, 305, 30, WHITE);
         M5.Lcd.setCursor(x, y);
+        // actual_time/4 - 25% tolerance
         if (abs_ > actual_time / 4)
         {
           r = false;
